@@ -35,7 +35,7 @@ export class LoginComponent {
       next: response => {
         this.loading = false;
         this.userStateService.onLogin(response.token);
-        this.router.navigate(['/']);
+        this.router.navigate(['/main']);
       },
       error: err => {
         if (err.status === 401) {
@@ -63,7 +63,7 @@ export class LoginComponent {
       this.authService.loginFacebook(loginRequest).subscribe({
         next: response => {
           this.userStateService.onLogin(response.token);
-          this.router.navigate(['/']);
+          this.router.navigate(['/main']);
         },
         error: _ => {
           this.error = 'Error occured! Please try again.'
