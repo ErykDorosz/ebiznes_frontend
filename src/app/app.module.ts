@@ -8,6 +8,7 @@ import { NbThemeModule, NbLayoutModule, NbButtonModule, NbUserModule, NbIconModu
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { TopBarComponent } from './layout/top-bar/top-bar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,23 @@ import { HttpClientModule } from '@angular/common/http';
     NbButtonModule,
     NbUserModule,
     NbIconModule,
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: true,
+        providers: [
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('693812964988848'),
+          },
+        ],
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
