@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { MainRoutingModule } from './main-routing.module';
 import { ProductListComponent } from './product-list/product-list.component';
+import { NbCardModule, NbLayoutModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { ProductListComponent } from './product-list/product-list.component';
   ],
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    NbLayoutModule,
+    NbCardModule
   ]
 })
 export class MainModule { }
