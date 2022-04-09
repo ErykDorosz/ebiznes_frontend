@@ -52,6 +52,8 @@ export class RegisterComponent implements OnInit {
         error: err => {
           if (err?.error?.message === 'User exists') {
             this.error = 'User exists!';
+          } else {
+            this.error = 'Something went wrong, try again'
           }
           this.loading = false;
         }

@@ -3,12 +3,15 @@
     <a nbButton routerLink="/">
       <nb-icon icon="home"></nb-icon> Home
     </a>
+    <a nbButton routerLink="/admin" *ngIf="user?.admin">
+      <nb-icon icon="grid"></nb-icon> Admin panel
+    </a>
   </div>
   <div class="auth-container">
-    <div class="auth-links" *ngIf="!user">
+    <nav class="auth-links" *ngIf="!user">
       <a nbButton outline status="primary" routerLink="/auth/login" class="login-button">Login</a>
       <a nbButton status="primary" routerLink="/auth/register">Register</a>
-    </div>
+    </nav>
     <nb-user name="{{user.username}}" nbContextMenuTag="user-context-menu" *ngIf="user" (click)="logoutEvent.emit()"></nb-user>
   </div>
 </div>

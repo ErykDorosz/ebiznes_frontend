@@ -1,0 +1,26 @@
+<nb-layout-column>
+  <nb-card>
+    <nb-card-header>
+      <h1>Add a new product</h1>
+    </nb-card-header>
+    <nb-card-body class="form-card">
+      <form class="form-layout" [formGroup]="form" (ngSubmit)="addProduct()">
+        <div class="form-input-container">
+          <input nbInput class="form-input input-full-width" type="text" placeholder="Name" formControlName="name" status="default">
+        </div>
+        <div class="form-input-container">
+          <input nbInput class="form-input input-full-width" type="number" placeholder="Price" formControlName="unitPrice" status="default">
+        </div>
+        <div class="form-input-container">
+          <nb-select status="default" formControlName="categoryId">
+            <nb-option *ngFor="let category of categories" [value]="category.id">
+              {{category.categoryName}}
+            </nb-option>
+          </nb-select>
+        </div>
+
+        <button nbButton class="form-submit" status="primary" type="submit" [disabled]="!form.valid">Add product</button>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</nb-layout-column>
