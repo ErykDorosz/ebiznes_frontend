@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AddProductRequest, Category, CategoryService, ProductService } from '../../../../core/openapi';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NbToastrService } from '@nebular/theme';
@@ -10,12 +10,15 @@ import { NbToastrService } from '@nebular/theme';
 })
 export class AddProductComponent implements OnInit {
 
+  @ViewChild('imageInput')
+  imageInput?: ElementRef;
+
   form: FormGroup;
   categories?: Category[];
 
   newProduct: AddProductRequest = {
     categoryId: 1,
-    image: 'foo',
+    image: '',
     name: '',
     unitPrice: 0
   }
@@ -28,6 +31,7 @@ export class AddProductComponent implements OnInit {
       'name': ['', Validators.required],
       'unitPrice': ['', [Validators.required, Validators.min(0)]],
       'categoryId': ['', Validators.required],
+      'image': ['', Validators.required]
     });
   }
 
@@ -38,13 +42,38 @@ export class AddProductComponent implements OnInit {
 
   addProduct() {
     this.newProduct = this.form.value as AddProductRequest;
-    this.newProduct.image = 'asdf';
 
     this.productService.addProduct(this.newProduct).subscribe({
       next: _ => {
         this.toastService.success('Added new product!');
+        this.form.reset();
+        if (this.imageInput) {
+          this.imageInput.nativeElement.value = '';
+        }
       }
     })
   }
 
+  fileChanged(event: Event) {
+    const input = event.target as HTMLInputElement;
+
+    if (!input.files?.length) {
+      return;
+    }
+    const file = input.files[0];
+
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const image = new Image();
+      image.src = e.target.result;
+      image.onload = rs => {
+        this.form.patchValue({
+          image: e.target.result
+        });
+      }
+
+    }
+
+    reader.readAsDataURL(file)
+  }
 }

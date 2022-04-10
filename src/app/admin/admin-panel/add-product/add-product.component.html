@@ -12,12 +12,17 @@
           <input nbInput class="form-input input-full-width" type="number" placeholder="Price" formControlName="unitPrice" status="default">
         </div>
         <div class="form-input-container">
-          <nb-select status="default" formControlName="categoryId">
+          <nb-select status="default" formControlName="categoryId" placeholder="Category" class="form-input">
             <nb-option *ngFor="let category of categories" [value]="category.id">
               {{category.categoryName}}
             </nb-option>
           </nb-select>
         </div>
+        <div class="form-input-container">
+          <input nbInput type="file" placeholder="Image" class="form-input"
+                 (change)="fileChanged($event)" accept="image/*" #imageInput>
+        </div>
+
 
         <button nbButton class="form-submit" status="primary" type="submit" [disabled]="!form.valid">Add product</button>
       </form>

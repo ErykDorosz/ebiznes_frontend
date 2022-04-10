@@ -5,6 +5,12 @@
 
   .form-layout {
     width: 50%;
+    max-width: 30rem;
+
+    nb-select, input {
+      max-width: unset;
+    }
+
   }
 }
 
