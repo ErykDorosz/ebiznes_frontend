@@ -4,11 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbButtonModule, NbUserModule, NbIconModule } from '@nebular/theme';
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbButtonModule,
+  NbUserModule,
+  NbIconModule,
+  NbToastrModule
+} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { TopBarComponent } from './layout/top-bar/top-bar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
+import { AuthInterceptor } from './core/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +34,8 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
     NbUserModule,
     NbIconModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    NbToastrModule.forRoot(),
   ],
   providers: [
     {
@@ -40,6 +49,11 @@ import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } fro
           },
         ],
       } as SocialAuthServiceConfig,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

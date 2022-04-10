@@ -1,0 +1,26 @@
+.main-card {
+
+  .actions-container {
+    display: flex;
+    gap: 1rem;
+
+    .action-card {
+      flex-basis: auto;
+      cursor: pointer;
+      transition: transform 200ms ease-in-out;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      .action-content {
+        margin: auto;
+
+        .action-icon {
+          font-size: 250px;
+        }
+      }
+    }
+  }
+
+}

@@ -3,6 +3,9 @@
     <a nbButton routerLink="/">
       <nb-icon icon="home"></nb-icon> Home
     </a>
+    <a nbButton routerLink="/admin" *ngIf="user?.admin">
+      <nb-icon icon="grid"></nb-icon> Admin panel
+    </a>
   </div>
   <div class="auth-container">
     <div class="auth-links" *ngIf="!user">

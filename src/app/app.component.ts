@@ -19,7 +19,6 @@ export class AppComponent implements OnInit{
     this.userStateService.currentUser.subscribe(
       (user) => {
         this.user = user;
-        console.log(user);
       }
     );
   }

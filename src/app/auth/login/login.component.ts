@@ -35,7 +35,9 @@ export class LoginComponent {
       next: response => {
         this.loading = false;
         this.userStateService.onLogin(response.token);
-        this.router.navigate(['/main']);
+        this.userStateService.currentUser.subscribe(user => {
+          user?.admin ? this.router.navigate(['/admin']) : this.router.navigate(['/main'])
+        })
       },
       error: err => {
         if (err.status === 401) {

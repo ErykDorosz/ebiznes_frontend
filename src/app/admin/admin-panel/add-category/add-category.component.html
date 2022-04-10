@@ -1,0 +1,20 @@
+<nb-layout-column>
+  <nb-card>
+    <nb-card-header>
+      <h1>Add a new category</h1>
+    </nb-card-header>
+    <nb-card-body class="form-card">
+      <form class="form-layout" [formGroup]="form" (ngSubmit)="addCategory()">
+        <div class="form-input-container">
+          <input nbInput class="form-input input-full-width" type="text" placeholder="Name" formControlName="categoryName" status="default">
+        </div>
+        <div class="form-input-container">
+          <textarea nbInput class="form-input input-full-width" type="text" placeholder="Description" formControlName="categoryDescription" status="default">
+          </textarea>
+        </div>
+
+        <button nbButton class="form-submit" status="primary" type="submit" [disabled]="!form.valid">Add category</button>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</nb-layout-column>

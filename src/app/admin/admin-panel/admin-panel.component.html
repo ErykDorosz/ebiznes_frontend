@@ -1,0 +1,18 @@
+<nb-layout-column>
+  <nb-card class="main-card">
+    <nb-card-header>
+      <h1>Hello, {{user?.firstName}}</h1>
+      <h5>What would you like to do?</h5>
+    </nb-card-header>
+    <nb-card-body class="actions-container">
+      <nb-card class="action-card" *ngFor="let action of actions" [routerLink]="action.link">
+        <nb-card-header>
+          <h3>{{action.header}}</h3>
+        </nb-card-header>
+        <nb-card-body class="action-content">
+          <nb-icon [icon]="action.icon" class="action-icon"></nb-icon>
+        </nb-card-body>
+      </nb-card>
+    </nb-card-body>
+  </nb-card>
+</nb-layout-column>

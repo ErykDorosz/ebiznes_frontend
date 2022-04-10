@@ -9,12 +9,13 @@
 
   .form-input-container {
     width: 100%;
+    min-width: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     .form-input, .form-input-error-container {
-      width: 80%;
+      width: 100%;
     }
 
 
@@ -24,6 +25,7 @@
   }
 
   .form-submit {
+    min-width: 320px;
     width: 60%;
   }
 }
