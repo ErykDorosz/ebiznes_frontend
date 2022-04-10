@@ -8,13 +8,13 @@ import { NbCardModule, NbLayoutModule } from '@nebular/theme';
 
 @NgModule({
   declarations: [
-    ProductListComponent
+    ProductListComponent,
   ],
   imports: [
     CommonModule,
     MainRoutingModule,
     NbLayoutModule,
-    NbCardModule
-  ]
+    NbCardModule,
+  ],
 })
 export class MainModule { }
