@@ -5,12 +5,12 @@
       <h5>What would you like to do?</h5>
     </nb-card-header>
     <nb-card-body class="actions-container">
-      <nb-card class="action-card" [routerLink]="'/admin/product/add'">
+      <nb-card class="action-card" *ngFor="let action of actions" [routerLink]="action.link">
         <nb-card-header>
-          <h3>Add a new product</h3>
+          <h3>{{action.header}}</h3>
         </nb-card-header>
         <nb-card-body class="action-content">
-          <nb-icon icon="plus-square" class="action-icon"></nb-icon>
+          <nb-icon [icon]="action.icon" class="action-icon"></nb-icon>
         </nb-card-body>
       </nb-card>
     </nb-card-body>

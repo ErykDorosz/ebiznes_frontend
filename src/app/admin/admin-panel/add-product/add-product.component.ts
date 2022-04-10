@@ -45,7 +45,7 @@ export class AddProductComponent implements OnInit {
 
     this.productService.addProduct(this.newProduct).subscribe({
       next: _ => {
-        this.toastService.success('Added new product!');
+        this.toastService.success('Added new product!', 'Success!');
         this.form.reset();
         if (this.imageInput) {
           this.imageInput.nativeElement.value = '';

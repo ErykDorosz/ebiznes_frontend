@@ -14,13 +14,15 @@ import {
   NbSelectModule, NbToastrModule
 } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddCategoryComponent } from './admin-panel/add-category/add-category.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     AdminPanelComponent,
-    AddProductComponent
+    AddProductComponent,
+    AddCategoryComponent
   ],
   imports: [
     CommonModule,
