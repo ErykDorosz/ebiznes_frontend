@@ -1,9 +1,14 @@
 <nb-layout-column class="column">
-  <div class="container">
-    <nb-card *ngFor="let product of products">
-      <nb-card-body>
-        <app-product-card [product]="product"></app-product-card>
-      </nb-card-body>
-    </nb-card>
+  <div class="list-container">
+    <div class="cards-container">
+      <nb-card *ngFor="let product of products">
+        <nb-card-body>
+          <app-product-card [product]="product"></app-product-card>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <app-pager [currentPage]="currentPage"
+               [totalPages]="totalPages"
+               (pageChanged)="onPageChanged($event)"></app-pager>
   </div>
 </nb-layout-column>

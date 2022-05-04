@@ -1,0 +1,8 @@
+<div class="pager">
+  <button nbButton outline status="primary" [disabled]="currentPage === 0" (click)="pageChanged.emit(currentPage - 1)">
+    < Previous
+  </button>
+  <button nbButton outline status="primary" [disabled]="currentPage === totalPages - 1" (click)="pageChanged.emit(currentPage + 1)">
+    Next >
+  </button>
+</div>

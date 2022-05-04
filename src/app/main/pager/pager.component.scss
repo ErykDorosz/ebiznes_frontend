@@ -1,0 +1,9 @@
+.pager {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  button {
+    min-width: 200px;
+  }
+}

@@ -10,13 +10,25 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [];
 
+  currentPage = 0;
+  totalPages = 0;
+
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.findAllProducts().subscribe(
+    this.fetchPage(this.currentPage);
+  }
+
+  fetchPage(pageNumber: number): void {
+    this.productService.getProductPage(pageNumber).subscribe(
       response => {
-        this.products = response;
+        this.products = response.items;
+        this.totalPages = response.totalPages;
       });
   }
 
+  onPageChanged(pageNumber: number): void {
+    this.currentPage = pageNumber;
+    this.fetchPage(this.currentPage);
+  }
 }
