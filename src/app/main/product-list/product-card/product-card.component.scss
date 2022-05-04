@@ -7,6 +7,9 @@
   margin: auto;
   text-align: center;
   font-family: arial;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .price {
     color: grey;

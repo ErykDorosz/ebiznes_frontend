@@ -1,9 +1,11 @@
 <div *ngIf="product" class="product-card">
-  <img  *ngIf="image" [src]="image" alt="Tanczacy kaktus" style="width:100%" >
-  <h3>{{product.name}}</h3>
-  <p class = "price">{{product.unitPrice}}</p>
-  <div *ngIf="product.category">
-    {{product.category.description}}
+  <img *ngIf="image" [src]="image" alt="Tanczacy kaktus" style="width:100%" >
+  <div>
+    <h3>{{product.name}}</h3>
+    <p class = "price">{{product.unitPrice}}</p>
+    <div *ngIf="product.category">
+      {{product.category.description}}
+    </div>
+    <p><button>Add to Cart</button></p>
   </div>
-  <p><button>Add to Cart</button></p>
 </div>
