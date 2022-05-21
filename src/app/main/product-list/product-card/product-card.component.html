@@ -6,6 +6,6 @@
     <div *ngIf="product.category">
       {{product.category.description}}
     </div>
-    <p><button>Add to Cart</button></p>
+    <p><button (click)="addToShoppingCart()">Add to Cart</button></p>
   </div>
 </div>

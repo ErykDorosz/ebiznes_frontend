@@ -1,0 +1,25 @@
+<nb-layout-column>
+    <nb-card>
+        <nb-card-header class="card-header">
+            Shopping cart
+        </nb-card-header>
+        <nb-list>
+            <nb-list-item *ngFor="let product of products" class="list-item">
+                <span class="product-name">{{ product.product.name }}</span>
+                <span class="product-quantity">
+                    <strong>x{{ product.quantity }}</strong>
+                </span>
+                <span class="product-price">
+                    {{ product.product.unitPrice! * product.quantity | currency: 'PLN' }}
+                </span>
+                <button nbButton class="remove-product" status="danger" (click)="removeProduct(product.product.id!)">Remove</button>
+            </nb-list-item>    
+        </nb-list>
+    </nb-card>
+    <div *ngIf="products.length == 0">
+        <p class="empty">Shopping cart is empty</p>
+    </div>
+    <div class="pay-container">
+        <button nbButton class = "pay-for-product" status="primary" (click)="pay()">Pay</button>
+    </div>
+</nb-layout-column>

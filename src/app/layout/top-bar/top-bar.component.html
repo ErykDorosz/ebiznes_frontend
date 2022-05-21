@@ -3,6 +3,9 @@
     <a nbButton routerLink="/">
       <nb-icon icon="home"></nb-icon> Home
     </a>
+    <a nbButton routerLink="/main/cart" *ngIf="user">
+      <nb-icon icon="shopping-cart"></nb-icon> Cart
+    </a>
     <a nbButton routerLink="/admin" *ngIf="user?.admin">
       <nb-icon icon="grid"></nb-icon> Admin panel
     </a>

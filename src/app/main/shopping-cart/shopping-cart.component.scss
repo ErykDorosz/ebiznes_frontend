@@ -1,0 +1,39 @@
+.empty {
+    text-align: center;
+    justify-content: center;
+    font-size: larger;
+    color: black;
+    margin-top: 50px;
+  }
+
+.card-header {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.pay-container
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+
+  .product-name {
+    width: 30%;
+  }
+
+  .product-price {
+    width: 10%;
+  }
+
+  .product-quantity {
+    width: 10%;
+  }
+
+  .remove-button {
+    width: 10%;
+  }
+}
