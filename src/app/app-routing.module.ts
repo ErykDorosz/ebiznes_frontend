@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CancelComponent } from './cancel/cancel.component';
 import { AdminGuard } from './core/admin.guard';
+import { SucessComponent } from './sucess/sucess.component';
 
 const routes: Routes = [
   {
@@ -16,6 +18,10 @@ const routes: Routes = [
     canLoad: [AdminGuard],
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   },
+
+  { path: 'cancel', component: CancelComponent },
+  { path: 'success', component: SucessComponent },
+  
   { path: '', redirectTo: 'main', pathMatch: 'full' },
 ];
 

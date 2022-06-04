@@ -17,11 +17,15 @@ import { TopBarComponent } from './layout/top-bar/top-bar.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
 import { AuthInterceptor } from './core/auth.interceptor';
+import { CancelComponent } from './cancel/cancel.component';
+import { SucessComponent } from './sucess/sucess.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
+    CancelComponent,
+    SucessComponent,
   ],
   imports: [
     BrowserModule,

@@ -42,4 +42,8 @@ export class CartService {
     }
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
   }
+
+  clearCart() {
+    localStorage.setItem(CART_KEY, '[]');
+  }
 }
